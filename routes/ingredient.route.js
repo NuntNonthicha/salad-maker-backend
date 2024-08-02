@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Ingredient = require("../models/ingredient.model"); // Adjust the path as necessary
+const Ingredient = require("../models/ingredient.model");
 
 const useIngredientRoute = async (router) => {
   // GET /api/ingredients

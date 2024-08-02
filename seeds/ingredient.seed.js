@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const Ingredient = require("../models/ingredient.model"); // Adjust path as needed
-const databaseService = require("../config/database.service"); // Adjust path if needed
+const Ingredient = require("../models/ingredient.model");
+const databaseService = require("../config/database.service");
 require("dotenv").config();
 
 const ingredientsData = [
