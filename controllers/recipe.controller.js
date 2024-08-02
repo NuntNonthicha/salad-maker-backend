@@ -44,7 +44,7 @@ module.exports = {
         status: "success",
       });
     } catch (error) {
-      console.error("Error in createRecipe:", error); // Log the detailed error
+      console.error("Error in Create Recipe:", error);
       res.status(500).json({ message: error.message });
     }
   },
@@ -74,7 +74,7 @@ module.exports = {
       const updatedRecipe = await Recipe.findByIdAndUpdate(
         id,
         { name, detail, totalAmount: totalAmount, totalCalories },
-        { new: true } // Return the updated document
+        { new: true }
       );
 
       if (!updatedRecipe) {
@@ -87,17 +87,15 @@ module.exports = {
         status: "success",
       });
     } catch (error) {
-      console.error("Error in updateRecipe:", error); // Log the detailed error
+      console.error("Error in updateRecipe:", error);
       res.status(500).json({ message: error.message });
     }
   },
   // Fetch all recipes
   getAllRecipes: async (req, res) => {
     try {
-      // Fetch all recipes from the database
       const recipes = await Recipe.find({});
 
-      // Map over the recipes to format the response
       const formattedRecipes = recipes.map((recipe) => ({
         id: recipe._id,
         name: recipe.name,
@@ -120,15 +118,12 @@ module.exports = {
     try {
       const { id } = req.params;
 
-      // Find the recipe by ID
       const recipe = await Recipe.findById(id);
 
-      // Check if the recipe was found
       if (!recipe) {
         return res.status(404).json({ message: "Recipe not found" });
       }
 
-      // Return the recipe details
       res.status(200).json({
         data: {
           id: recipe._id,
@@ -141,7 +136,7 @@ module.exports = {
         status: "success",
       });
     } catch (error) {
-      console.error("Error in getRecipeById:", error); // Log the detailed error
+      console.error("Error in getRecipeById:", error);
       res.status(500).json({ message: error.message });
     }
   },
@@ -151,7 +146,6 @@ module.exports = {
     try {
       const { id } = req.params;
 
-      // Check if the recipe exists and delete it
       const deletedRecipe = await Recipe.findByIdAndDelete(id);
 
       if (!deletedRecipe) {
@@ -165,7 +159,7 @@ module.exports = {
         message: "Delete a receipe successfully",
       });
     } catch (error) {
-      console.error("Error in delete Recipe:", error); // Log the detailed error
+      console.error("Error in delete Recipe:", error);
       res.status(500).json({ message: error.message });
     }
   },

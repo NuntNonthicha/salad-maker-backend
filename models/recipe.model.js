@@ -24,7 +24,6 @@ const RecipeSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-    versionKey: false,
   }
 );
 
