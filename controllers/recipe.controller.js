@@ -109,7 +109,7 @@ module.exports = {
         status: "success",
       });
     } catch (error) {
-      console.error("Error in getAllRecipes:", error);
+      console.error("Error in get All Recipes:", error);
       res.status(500).json({ message: error.message });
     }
   },

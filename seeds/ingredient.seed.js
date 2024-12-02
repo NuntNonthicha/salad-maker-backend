@@ -112,21 +112,21 @@ const ingredientsData = [
   },
   {
     ingredient: "Crouton",
-    category: "dressing",
+    category: "toppings",
     image:
       "https://firebasestorage.googleapis.com/v0/b/salad-maker-application-bbb1d.appspot.com/o/images%2FCrouton.png?alt=media&token=5a19dcea-e9b0-4df8-ac5f-7076d4c86c2f",
     calories: 81,
   },
   {
     ingredient: "Barley",
-    category: "dressing",
+    category: "toppings",
     image:
       "https://firebasestorage.googleapis.com/v0/b/salad-maker-application-bbb1d.appspot.com/o/images%2FBarley.png?alt=media&token=50e31673-4778-4fbd-9f90-551e2b68c657",
     calories: 100,
   },
   {
     ingredient: "Cashew Nut",
-    category: "dressing",
+    category: "toppings",
     image:
       "https://firebasestorage.googleapis.com/v0/b/salad-maker-application-bbb1d.appspot.com/o/images%2FCashew%20Nut.png?alt=media&token=d1a7ceb9-3b80-4411-9d0f-18ec55a58fed",
     calories: 110,
@@ -172,7 +172,7 @@ databaseService.connect();
 
 const seedDb = async () => {
   try {
-    await Ingredient.deleteMany({}); // Clear existing data
+    await Ingredient.deleteMany({});
     console.log("Existing data cleared.");
 
     await Ingredient.insertMany(ingredientsData); // Insert new data
@@ -180,7 +180,7 @@ const seedDb = async () => {
   } catch (error) {
     console.error("Error seeding data:", error);
   } finally {
-    mongoose.connection.close(); // Ensure the connection is closed
+    mongoose.connection.close();
     console.log("MongoDB connection closed.");
   }
 };
